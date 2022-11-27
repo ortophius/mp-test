@@ -11,3 +11,159 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 0;
+}
+
+.app__buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.app__button {
+  display: flex;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  border: 1px solid blue;
+  color: blue;
+  border-radius: 4px;
+  background: white;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.button__icon {
+  margin-right: 8px;
+}
+
+.app__button + .app__button {
+  margin-left: 18px;
+}
+
+.location-form {
+  border: 1px solid grey;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+}
+
+.form-header__removeBtn {
+  outline: none;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  cursor: pointer;
+}
+
+.location-form__header {
+  margin-bottom: 18px;
+}
+
+.form-header__title {
+  margin: 0;
+  margin-left: 24px;
+  flex-grow: 1;
+}
+
+.location-form__controls {
+  display: grid;
+  grid-template-columns: repeat(3, min-content 1fr);
+  column-gap: 8px;
+  row-gap: 18px;
+  align-items: center;
+}
+
+.location-form__label {
+  font-size: 0.7rem;
+}
+
+.location-form__hint {
+  grid-column: span 5;
+}
+
+.select {
+  position: relative;
+}
+
+.select__toggle {
+  display: flex;
+}
+
+.select__label {
+  text-align: left;
+  flex-grow: 1;
+}
+
+.select__icon {
+  margin-right: 8px;
+}
+
+.select__chevron {
+  margin-left: 8px;
+}
+
+.select__options {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transform: translateY(100%);
+  z-index: 99;
+}
+
+.select__optionBtn {
+  text-align: left;
+  transition: 0.2s;
+}
+
+.select__optionBtn:hover {
+  background-color: #ededed;
+} 
+
+.select button {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border: 1px solid grey;
+  background: white;
+  padding: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.text-input {
+  display: flex;
+  border: 1px solid grey;
+}
+
+.text-input__input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 8px 8px 0;
+}
+
+.text-input__icon {
+  padding: 8px;
+}
+
+.location-form__servers {
+  display: flex;
+  align-items: center;
+}
+
+.location-form__server-list {
+  margin-left: 8px;
+}

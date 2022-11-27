@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { action, makeAutoObservable, observable, reaction, runInAction } from "mobx";
 
 import { createContext } from "react";
 import sample from "./data.json";
@@ -24,6 +24,12 @@ export interface Server {
   envID: number;
 }
 
+export interface TestLocation {
+  locationID: Location["locationID"];
+  envID: Env["envID"];
+  hint: string;
+}
+
 export class Store {
   isLoaded = false;
   locations: Location[] = [];
@@ -42,7 +48,32 @@ export class Store {
 
   constructor() {
     makeAutoObservable(this);
+    this.fetchData();
   }
+
+  getServers(locationID: Location["locationID"], envID: Env["envID"]) {
+    return this.servers.filter(server => server.locationID === locationID && server.envID === envID);
+  }
+}
+
+
+
+export function createTestLocation(store: Store) {
+  const newTestLocation = {
+    locationID: (store.isLoaded) ? store.locations[0].locationID : 0,
+    envID: (store.isLoaded) ? store.envs[0].envID : 0,
+    hint: ""
+  }
+  makeAutoObservable(newTestLocation);
+  reaction(
+    () => store.isLoaded,
+    () => {
+      newTestLocation.locationID = store.locations[0].locationID;
+      newTestLocation.envID = store.envs[0].envID;
+    }
+  );
+
+  return newTestLocation;
 }
 
 export const store = new Store();
